@@ -2,10 +2,11 @@ import useFetchJobs from './useFetchJobs';
 import { Container } from 'react-bootstrap';
 
 function App() {
-  const {} = useFetchJobs();
+  const { loading, error, jobs } = useFetchJobs();
   return (
     <Container>
-      <h1>Hello</h1>
+      {loading && <h2>loading.........</h2>}
+      {error && <h2>Fatal error</h2>}
     </Container>
   );
 }
