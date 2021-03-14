@@ -7,6 +7,7 @@ function App() {
     <Container>
       {loading && <h2>loading.........</h2>}
       {error && <h2>Fatal error</h2>}
+      <h1>{jobs.length}</h1>
     </Container>
   );
 }

@@ -3,6 +3,7 @@ import { REQUEST, ERROR, GET_DATA } from './constants';
 import axios from 'axios';
 
 const BASE_URL = `https://jobs.github.com/positions.json`;
+// const proxy = `https://cors-anywhere.herokuapp.com/`;
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -27,6 +28,8 @@ const useFetchJobs = (params, page) => {
   const [state, dispatch] = useReducer(reducer, { jobs: [], loading: true });
 
   useEffect(() => {
+    const cancelToken = axios.CancelToken.source();
+
     dispatch({ type: REQUEST });
 
     axios
@@ -42,8 +45,13 @@ const useFetchJobs = (params, page) => {
         });
       })
       .catch((e) => {
+        if (axios.isCancel(e)) return;
         dispatch({ type: ERROR, payload: { error: e } });
       });
+
+    return () => {
+      cancelToken.cancel();
+    };
   }, [params, page]);
 
   return state;
