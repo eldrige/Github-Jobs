@@ -28,6 +28,7 @@ const useFetchJobs = (params, page) => {
   const [state, dispatch] = useReducer(reducer, { jobs: [], loading: true });
 
   useEffect(() => {
+    //? this is so as to cancel the last requests, when our params change
     const cancelToken = axios.CancelToken.source();
 
     dispatch({ type: REQUEST });
