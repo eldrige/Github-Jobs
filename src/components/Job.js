@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badge, Button, Card, Image, Collapse } from 'react-bootstrap';
+import { Badge, Button, Card, Collapse } from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
 
 const Job = ({ job }) => {

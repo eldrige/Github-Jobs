@@ -10,6 +10,12 @@ const Loader = () => {
         size="sm"
         role="status"
         aria-hidden="true"
+        // style={{
+        //   width: '100px',
+        //   height: '100px',
+        //   margin: 'auto',
+        //   display: 'block',
+        // }}
       />
       Loading...
     </Button>

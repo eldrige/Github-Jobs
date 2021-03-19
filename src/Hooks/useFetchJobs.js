@@ -1,5 +1,5 @@
-import React, { useReducer, useEffect } from 'react';
-import { REQUEST, ERROR, GET_DATA, UPDATE_HAS_NEXT_PAGE } from './constants';
+import { useReducer, useEffect } from 'react';
+import { REQUEST, ERROR, GET_DATA, UPDATE_HAS_NEXT_PAGE } from '../constants';
 import axios from 'axios';
 
 const BASE_URL = `https://jobs.github.com/positions.json`;
