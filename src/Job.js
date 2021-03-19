@@ -3,7 +3,7 @@ import { Badge, Button, Card, Image, Collapse } from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
 
 const Job = ({ job }) => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = React.useState(false);
 
   return (
     <Card className="my-3">
