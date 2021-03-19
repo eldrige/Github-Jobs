@@ -7,7 +7,7 @@ import Pagination from './jobPagination';
 function App() {
   const [params, setParams] = useState({});
   const [page, setPage] = useState(1);
-  const { loading, error, jobs } = useFetchJobs(params, page);
+  const { loading, error, jobs, hasNextPage } = useFetchJobs(params, page);
   return (
     <Container className="my-3">
       <h1 className="mb-4">Github Jobs</h1>
@@ -17,7 +17,7 @@ function App() {
       {jobs.map((job) => {
         return <Job key={job.id} job={job} />;
       })}
-      <Pagination page={page} setPage={setPage} hasNextPage={true} />
+      <Pagination page={page} setPage={setPage} hasNextPage={hasNextPage} />
     </Container>
   );
 }
