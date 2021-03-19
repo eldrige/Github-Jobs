@@ -1,8 +1,9 @@
+import { useState } from 'react';
 import useFetchJobs from './useFetchJobs';
 import { Container } from 'react-bootstrap';
-import { useState } from 'react';
 import Job from './Job';
 import Pagination from './jobPagination';
+import Loader from './Loader';
 
 function App() {
   const [params, setParams] = useState({});
@@ -12,7 +13,7 @@ function App() {
     <Container className="my-3">
       <h1 className="mb-4">Github Jobs</h1>
       <Pagination page={page} setPage={setPage} hasNextPage={true} />
-      {loading && <h2>loading.........</h2>}
+      {loading && <Loader />}
       {error && <h2>Fatal error</h2>}
       {jobs.map((job) => {
         return <Job key={job.id} job={job} />;
