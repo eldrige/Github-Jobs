@@ -2,13 +2,15 @@ import { useReducer, useEffect } from 'react';
 import { REQUEST, ERROR, GET_DATA, UPDATE_HAS_NEXT_PAGE } from '../constants';
 import axios from 'axios';
 
-const BASE_URL = `https://jobs.github.com/positions.json`;
+const BASE_URL = ` https:api.allorigins.win/raw?url=https://jobs.github.com/positions.json`;
 
 // const proxies = [
 //   `https://cors-anywhere.herokuapp.com/`,
 //   ` https:api.allorigins.win/raw?url=`,
 //   `https:thingproxy.freeboard.io/fetch/`,
 // ];
+
+// const proxy = `https:thingproxy.freeboard.io/fetch/`;
 
 const reducer = (state, action) => {
   switch (action.type) {

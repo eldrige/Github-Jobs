@@ -32,7 +32,7 @@ function App() {
       <SearchForm params={params} onParamChange={handleParamChange} />
       <Pagination page={page} setPage={setPage} hasNextPage={true} />
       {loading && <Loader />}
-      {error && <h2>Fatal error</h2>}
+      {error && <h2>Please check your internet</h2>}
       {jobs.map((job) => {
         return <Job key={job.id} job={job} />;
       })}
