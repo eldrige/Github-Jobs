@@ -5,6 +5,7 @@ import Job from './components/Job';
 import Pagination from './components/jobPagination';
 import Loader from './components/Loader';
 import SearchForm from './components/SearchForm';
+import './index.css';
 
 function App() {
   const [params, setParams] = useState({});

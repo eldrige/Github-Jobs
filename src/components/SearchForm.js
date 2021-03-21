@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Form, Col } from 'react-bootstrap';
 
 const SearchForm = ({ params, onParamChange }) => {
