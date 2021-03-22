@@ -2,7 +2,7 @@ import { useReducer, useEffect } from 'react';
 import { REQUEST, ERROR, GET_DATA, UPDATE_HAS_NEXT_PAGE } from '../constants';
 import axios from 'axios';
 
-const BASE_URL = `https:api.allorigins.win/raw?url=https://jobs.github.com/positions.json`;
+const BASE_URL = `https://jobs.github.com/positions.json`;
 
 // const proxies = [
 //   `https://cors-anywhere.herokuapp.com/`,
@@ -48,9 +48,11 @@ const useFetchJobs = (params, page) => {
     axios
       .get(BASE_URL, {
         params: { markdown: true, page: page, ...params },
-        headers: { 'Access-Control-Allow-Origin': '*' },
+        mode: 'cors',
+        headers: 'Access-Control-Allow-Origin',
       })
       .then((res) => {
+        console.log(res);
         dispatch({
           type: GET_DATA,
           payload: {
@@ -67,9 +69,12 @@ const useFetchJobs = (params, page) => {
     axios
       .get(BASE_URL, {
         params: { markdown: true, page: page + 1, ...params },
-        headers: { 'Access-Control-Allow-Origin': '*' },
+        mode: 'cors',
+        headers: 'Access-Control-Allow-Origin',
       })
       .then((res) => {
+        console.error(res, 'why u not displaying anything');
+
         dispatch({
           type: UPDATE_HAS_NEXT_PAGE,
           payload: {
